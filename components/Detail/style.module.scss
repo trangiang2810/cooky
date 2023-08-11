@@ -1,0 +1,69 @@
+.container {
+  margin: auto;
+  max-width: 120rem;
+  h1 {
+    font-size: 2.2rem;
+  }
+  .thumb {
+    margin: auto;
+    height: 50vh;
+    position: relative;
+    img {
+      object-fit: cover;
+    }
+  }
+  .content {
+    padding: 2rem 4rem;
+    .ingredient_list {
+      padding: 1rem;
+      background: #fff;
+      h3 {
+        font-size: 1.6rem;
+      }
+      .ingredient_item {
+        padding: 0.7rem 2rem;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.317);
+        // border-top: 1px solid rgba(128, 128, 128, 0.317);
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.4rem;
+      }
+    }
+    .youtobe {
+      iframe {
+        height: 22vh;
+        overflow: hidden;
+      }
+    }
+    .instructions {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      h3 {
+        font-size: 1.6rem;
+        display: flex;
+        flex-direction: column;
+      }
+      p {
+        font-size: 1.4rem;
+
+        :nth-child(1) {
+          // background: rgb(63, 151, 0);
+          // padding: 0.5rem;
+          // color: #fff;
+          font-weight: 700;
+          // border-radius: 7px;
+        }
+        // line-height: 2rem;
+        // flex-direction: column;
+        // :nth-child(1) {
+        //   b {
+        //
+        //   }
+        // }
+        // :nth-child(2) {
+        // }
+      }
+    }
+  }
+}

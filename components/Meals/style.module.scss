@@ -1,0 +1,15 @@
+.container {
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 4rem;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 4rem;
+  }
+}
