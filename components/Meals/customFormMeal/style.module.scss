@@ -11,29 +11,29 @@
     }
   }
   .content {
-    padding: 0.8rem;
+    padding: 2rem 0.8rem 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.7rem;
+    gap: 1rem;
     h3 {
       font-size: 1.6rem;
       text-align: center;
     }
-    button {
+    .btn {
       background: rgb(255, 136, 0);
-      border: none;
-      padding: 0.7rem 1.5rem;
       border-radius: 1.5rem;
-      cursor: pointer;
+      :hover {
+        color: #fff;
+      }
     }
   }
   .favourite {
     position: absolute;
-    bottom: 0;
+    bottom: 0.4rem;
     right: 1rem;
     font-size: 2rem;
-    color: rgb(186, 185, 185);
+    color: rgb(225, 29, 62);
     cursor: pointer;
   }
 }

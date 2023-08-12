@@ -1,15 +1,36 @@
+@import '@/styles/mixin';
+
 .container {
+  max-width: 1200px;
+  margin: auto;
+  .search_input {
+    display: flex;
+    justify-content: center;
+    margin: 5rem 0 0 0;
+  }
+
   .categories {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 2.5rem;
     padding: 2rem 4rem;
+    // display: flex;
   }
 
   .items {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2.5rem;
     padding: 2rem 4rem;
+    @include screen_lg {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @include screen_md {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include screen_sm {
+      padding: 0;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
   }
 }

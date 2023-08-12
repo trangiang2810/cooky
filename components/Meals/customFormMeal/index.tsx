@@ -8,10 +8,10 @@ import { DetailsProps, MealsProps } from '@/types'
 import { MealContext } from '@/context'
 import { AiOutlineHeart, AiTwotoneHeart } from 'react-icons/ai'
 import Link from 'next/link'
+import { Button } from 'antd'
+
 const CustomForm = () => {
-  const { meals, handleMealDetail, handleFavoriteClick, favorites }: any =
-    useContext(MealContext)
-  console.log(favorites)
+  const { meals, handleMealDetail, handleFavoriteClick, favorites }: any = useContext(MealContext)
 
   return (
     <>
@@ -20,7 +20,7 @@ const CustomForm = () => {
           <div className={styles.image}>
             <Image
               src={meals?.strMealThumb}
-              alt="/"
+              alt={meals?.strMeal}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
@@ -28,11 +28,13 @@ const CustomForm = () => {
           <div className={styles.content}>
             <h3>{meals.strMeal}</h3>
             <Link href={`details/${meals.idMeal}`}>
-              <button onClick={() => handleMealDetail(meals.idMeal)}>Chi tiết</button>
+              <Button className={styles.btn} onClick={() => handleMealDetail(meals.idMeal)}>
+                Chi tiết
+              </Button>
             </Link>
           </div>
           <div className={styles.favourite} onClick={() => handleFavoriteClick(meals?.idMeal)}>
-            {favorites.some((favorite: DetailsProps) => favorite.idMeal === meals?.idMeal) ? (
+            {favorites.some((favorite: DetailsProps) => favorite?.idMeal === meals?.idMeal) ? (
               <AiTwotoneHeart />
             ) : (
               <AiOutlineHeart />

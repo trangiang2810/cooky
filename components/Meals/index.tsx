@@ -1,20 +1,27 @@
 'use client'
 
 import styles from './style.module.scss'
-import CustomForm from '../CustomForm'
+import CustomForm from './customFormMeal'
 import { BiSearch } from 'react-icons/bi'
 import { useContext } from 'react'
 import { MealContext } from '@/context'
 import Categories from '../categories'
+import { Input } from 'antd'
+
 const Meals: React.FC = () => {
+  const { Search } = Input
   const { handleSearch }: any = useContext(MealContext)
   return (
     <section className={styles.container}>
-      <div className={styles.searchInput}>
-        <input onChange={e => handleSearch(e)} type="text" placeholder="Tìm kiếm" />
-        <BiSearch />
+      <div className={styles.search_input}>
+        <Search
+          placeholder="input search text"
+          allowClear
+          onSearch={handleSearch}
+          style={{ width: '50%' }}
+        />
       </div>
-      <div className={styles.categories}>
+      <div>
         <Categories />
       </div>
       <div className={styles.items}>

@@ -6,7 +6,7 @@ import { MealsProps } from '@/types'
 
 export interface MealContextValue {
   meals: MealsProps[]
-  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleSearch: (e: string) => void
   search: string
   categories: string[]
   handleCategoryFilter: (category: string) => Promise<void>
@@ -55,8 +55,8 @@ const MealContextProvider: React.FC<MealContextProviderProps> = ({ children }) =
     }
   }, [])
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
+  const handleSearch = (e: string) => {
+    setSearch(e)
   }
 
   const handleCategoryFilter = async (category: string) => {
@@ -73,14 +73,13 @@ const MealContextProvider: React.FC<MealContextProviderProps> = ({ children }) =
   const handleFavoriteClick = (id: string) => {
     const selectMeal = meals.find(meal => meal.idMeal === id)
     if (selectMeal) {
-      if (favorites.some(favorite => favorite.idMeal === id)) {
-        const updateFavorites = favorites.filter(favorite => favorite.idMeal !== id)
-        setFavorites(updateFavorites)
-      } else {
-        setFavorites([...favorites, selectMeal])
-      }
+      const updatedFavorites = favorites.some(favorite => favorite.idMeal === id)
+        ? favorites.filter(favorite => favorite.idMeal !== id)
+        : [...favorites, selectMeal]
+
+      setFavorites(updatedFavorites)
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
     }
-    localStorage.setItem('favorites', JSON.stringify([...favorites, selectMeal]))
   }
 
   return (

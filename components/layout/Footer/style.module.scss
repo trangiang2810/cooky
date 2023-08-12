@@ -1,0 +1,18 @@
+.container {
+  .footer_wrapper {
+    // width: 100%;
+    background: #202329;
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    // padding: 2rem 1rem;
+  }
+  .copyright {
+    background: #282828;
+    color: #777;
+    text-align: center;
+    padding: 0.8rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+}

@@ -7,13 +7,13 @@ import { AiTwotoneHeart } from 'react-icons/ai'
 import styles from './style.module.scss'
 import { DetailsProps } from '@/types'
 const Detail: React.FC = () => {
-  const { selectedMeal }: any = useContext(MealContext)
+  const { selectedMeal, handleFavoriteClick }: any = useContext(MealContext)
 
   return (
     <div className={styles.container}>
-      <h1>{selectedMeal?.strMeal}</h1>
       <div className={styles.thumb}>
         <Image
+          priority
           src={selectedMeal?.strMealThumb}
           alt={selectedMeal?.strMeal}
           fill
@@ -21,27 +21,47 @@ const Detail: React.FC = () => {
         />
       </div>
       <div className={styles.content}>
-        <div>
-          <h2>Gaf aran</h2>
-          <AiTwotoneHeart />
-        </div>
-        <div className={styles.ingredient_list}>
-          <h3>Thành phần</h3>
-          <div className={styles.ingredient_item}>
-            <span>{selectedMeal?.strIngredient1}</span>
-            <span>{selectedMeal?.strMeasure1}</span>
+        <div className={styles.title}>
+          <h1>{selectedMeal?.strMeal}</h1>
+          <div className={styles.favourite}>
+            <AiTwotoneHeart
+              onClick={() => handleFavoriteClick(selectedMeal?.idMeal)}
+              className={styles.icon}
+            />
           </div>
         </div>
+
+        <table className={styles.ingredient_list}>
+          <thead>
+            <tr>
+              <th>Thành phần</th>
+              <th className={styles.measure}>Lượng</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.from({ length: 20 }, (_, i) => i + 1).map(index => {
+              const ingredient = selectedMeal && selectedMeal[`strIngredient${index}`]
+              const measure = selectedMeal && selectedMeal[`strMeasure${index}`]
+              if (!ingredient) return null
+              return (
+                <tr key={index}>
+                  <td className={styles.ingredient}>{ingredient}</td>
+                  <td className={styles.measure}>{measure}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+
         <div className={styles.instructions}>
           <h3>Hướng dẫn thực hiện</h3>
-          {selectedMeal?.strInstructions
-            .split('\r\n')
-            .map((instructions: string, index: number) => (
-              <p key={index}>
-                <span>Bước {index + 1}: </span>
-                <span>{instructions}</span>
-              </p>
-            ))}
+          <ol>
+            {selectedMeal?.strInstructions
+              .split('\r\n')
+              .map((instruction: string, index: number) => (
+                <li key={index}>- {instruction}</li>
+              ))}
+          </ol>
         </div>
         <div className={styles.youtobe}>
           <iframe
