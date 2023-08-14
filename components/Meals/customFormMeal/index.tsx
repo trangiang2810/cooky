@@ -11,10 +11,18 @@ import Link from 'next/link'
 import { Button } from 'antd'
 
 const CustomForm = () => {
-  const { meals, handleMealDetail, handleFavoriteClick, favorites }: any = useContext(MealContext)
-
+  const { meals, handleMealDetail, handleFavoriteClick, favorites, handleLoadMore }: any =
+    useContext(MealContext)
+  if (!meals || meals.length === 0) {
+    return (
+      <div className={styles.ring}>
+        Loading
+        <span></span>
+      </div>
+    )
+  }
   return (
-    <>
+    <div className={styles.items}>
       {meals?.map((meals: MealsProps) => (
         <div key={meals.idMeal} className={styles.wrapper}>
           <div className={styles.image}>
@@ -42,7 +50,7 @@ const CustomForm = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   )
 }
 

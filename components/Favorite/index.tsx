@@ -7,6 +7,7 @@ import styles from './style.module.scss'
 
 import { AiTwotoneHeart } from 'react-icons/ai'
 import { Button } from 'antd'
+import Title from '../title'
 
 const Favorite = () => {
   const { favorites, handleFavoriteClick, handleMealDetail }: any = useContext(MealContext)
@@ -19,36 +20,45 @@ const Favorite = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        <h1>Favorite Meal</h1>
-      </div>
-      {favorites.map((meal: any, index: number) => (
-        <div
-          className={styles.meals_list}
-          key={index}
-          onClick={() => handleMealDetail(meal.idMeal)}
-        >
-          <Link className={styles.meal_item} href={`/details/${meal.idMeal}`}>
-            <div className={styles.thumb}>
-              <Image src={meal?.strMealThumb} alt={meal?.strMeal} fill />
-            </div>
-            <div className={styles.name}>
-              <h2>{meal?.strMeal}</h2>
-            </div>
-          </Link>
-          <Link className={styles.btn_detail} href={`details/${meal.idMeal}`}>
-            <Button className={styles.btn}>Chi tiết</Button>
-          </Link>
-          <div className={styles.favourite}>
-            <AiTwotoneHeart
-              onClick={() => handleFavoriteClick(meal?.idMeal)}
-              className={styles.icon}
-            />
-          </div>
+    <>
+      <Title text={'Favorite Meal'} />
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <h1>Favorite Meal</h1>
         </div>
-      ))}
-    </div>
+        {favorites.map((meal: any, index: number) => (
+          <div
+            className={styles.meals_list}
+            key={index}
+            onClick={() => handleMealDetail(meal.idMeal)}
+          >
+            <Link className={styles.meal_item} href={`/details/${meal.idMeal}`}>
+              <div className={styles.thumb}>
+                <Image
+                  src={meal?.strMealThumb}
+                  priority
+                  alt={meal?.strMeal}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+              <div className={styles.name}>
+                <h2>{meal?.strMeal}</h2>
+              </div>
+            </Link>
+            <Link className={styles.btn_detail} href={`details/${meal.idMeal}`}>
+              <Button className={styles.btn}>Chi tiết</Button>
+            </Link>
+            <div className={styles.favourite}>
+              <AiTwotoneHeart
+                onClick={() => handleFavoriteClick(meal?.idMeal)}
+                className={styles.icon}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
 

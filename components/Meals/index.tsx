@@ -10,7 +10,7 @@ import { Input } from 'antd'
 
 const Meals: React.FC = () => {
   const { Search } = Input
-  const { handleSearch }: any = useContext(MealContext)
+  const { handleSearch, meals }: any = useContext(MealContext)
   return (
     <section className={styles.container}>
       <div className={styles.search_input}>
@@ -21,12 +21,8 @@ const Meals: React.FC = () => {
           style={{ width: '50%' }}
         />
       </div>
-      <div>
-        <Categories />
-      </div>
-      <div className={styles.items}>
-        <CustomForm />
-      </div>
+      <Categories />
+      <CustomForm />
     </section>
   )
 }

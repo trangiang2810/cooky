@@ -7,12 +7,12 @@ const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.footer_wrapper}>
-        <div>
-          <h3>LIÊN HỆ</h3>
+        <div className={styles.items}>
+          <h3>Contact</h3>
           <ul>
             <li>
               <AiFillHome />
-              Hai Bà Trưng, Hà Nội
+              Hai Ba Trung, Ha Noi
             </li>
             <li>
               <AiFillPhone />
@@ -29,21 +29,21 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <h3>DANH MỤC</h3>
+        <div className={styles.items}>
+          <h3>category</h3>
           <ul>
             <li>
-              <Link href="/">Trang chủ</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/menu">Thực đơn</Link>
+              <Link href="/menu">Meals</Link>
             </li>
             <li>
-              <Link href="/news">Tin tức</Link>
+              <Link href="/news">COURSE REGISTRATION</Link>
             </li>
           </ul>
         </div>
-        <div>
+        <div className={styles.items}>
           <h3>FANPAGE</h3>
           <ul></ul>
         </div>

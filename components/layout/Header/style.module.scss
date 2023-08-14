@@ -1,3 +1,4 @@
+@import '@/styles/mixin';
 .container {
   position: relative;
   .header_top {
@@ -10,6 +11,7 @@
       color: #f3ba2f;
       font-size: 1rem;
       font-weight: 600;
+      text-transform: uppercase;
     }
     .social_icon {
       display: flex;
@@ -31,20 +33,26 @@
     :last-child {
       justify-content: end;
     }
-
+    @include screen_md {
+      display: block;
+      padding: 1.3rem 1.2rem;
+    }
     .logo {
       flex: 1 1 0;
       text-align: center;
       margin-top: -3rem;
       z-index: 1;
       max-height: 5rem;
+      @include screen_md {
+        display: none;
+      }
     }
     .item {
       display: flex;
       flex: 1 1 0;
       gap: 3rem;
       align-items: center;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 500;
       color: #494949;
       font-weight: 700;

@@ -3,11 +3,11 @@
 import React, { useContext } from 'react'
 import { MealContext } from '@/context'
 import Image from 'next/image'
-import { AiTwotoneHeart } from 'react-icons/ai'
+import { AiOutlineHeart, AiTwotoneHeart } from 'react-icons/ai'
 import styles from './style.module.scss'
 import { DetailsProps } from '@/types'
 const Detail: React.FC = () => {
-  const { selectedMeal, handleFavoriteClick }: any = useContext(MealContext)
+  const { selectedMeal, handleFavoriteClick, favorites }: any = useContext(MealContext)
 
   return (
     <div className={styles.container}>
@@ -23,11 +23,17 @@ const Detail: React.FC = () => {
       <div className={styles.content}>
         <div className={styles.title}>
           <h1>{selectedMeal?.strMeal}</h1>
-          <div className={styles.favourite}>
-            <AiTwotoneHeart
-              onClick={() => handleFavoriteClick(selectedMeal?.idMeal)}
-              className={styles.icon}
-            />
+          <div
+            className={styles.favourite}
+            onClick={() => handleFavoriteClick(selectedMeal?.idMeal)}
+          >
+            {favorites.some(
+              (favorite: DetailsProps) => favorite?.idMeal === selectedMeal?.idMeal
+            ) ? (
+              <AiTwotoneHeart />
+            ) : (
+              <AiOutlineHeart />
+            )}
           </div>
         </div>
 

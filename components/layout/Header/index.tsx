@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className={styles.container}>
       <div className={styles.header_top}>
-        <h2 className={styles.title}>ẨM THỰC RỤM</h2>
+        <h2 className={styles.title}>Cuisine 'RUM'</h2>
         <ul className={styles.social_icon}>
           <li>
             <a href="/">
@@ -39,7 +39,7 @@ const Header = () => {
             <Link href="/">home</Link>
           </li>
           <li>
-            <Link href="/registerCourse">Sign up for a cooking class</Link>
+            <Link href="/course-registration">Course registration</Link>
           </li>
         </ul>
         <div className={styles.logo}>

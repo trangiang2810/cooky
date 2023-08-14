@@ -1,3 +1,4 @@
+@import '@/styles/mixin';
 .empty {
   height: 70vh;
   text-align: center;
@@ -13,29 +14,52 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 5rem 3rem;
   gap: 3.5rem;
   .title {
+    padding: 0 3rem 5rem;
     font-size: 1.6rem;
   }
+  @include screen_sm {
+    padding: 0 0 5rem;
+    gap: 2rem;
+  }
   .meals_list {
+    padding: 0 3rem 5rem;
     padding: 2rem;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.336);
-    border-top: 1px solid rgba(128, 128, 128, 0.336);
+    border-bottom: 1px solid rgba(148, 147, 147, 0.336);
+    border-top: 1px solid rgba(148, 147, 147, 0.336);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
+    @include screen_xs {
+      padding: 1rem 0.5rem;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    @include screen_xs {
+      padding: 1rem 0;
+    }
 
     .meal_item {
-      flex: 1 1;
+      flex: 2 2;
       display: flex;
       align-items: center;
       gap: 2rem;
+      padding-right: 1rem;
+
       .thumb {
-        height: 20vh;
+        max-width: 20vh;
+        min-width: 10vh;
+        img {
+          border-radius: 1.5rem;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
       }
       .name {
         font-size: 1.4rem;
+        @include screen_sm {
+          font-size: 1.2rem;
+        }
       }
     }
 
