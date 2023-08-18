@@ -8,8 +8,9 @@ import MealContextProvider from '@/context'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Cooky - Món ngon mỗi ngày',
-  description: 'Hướng dẫn nấu ăn',
+  title: 'Cooky - delicious food every day',
+  description:
+    'Cooking courses: Discover quality cooking courses and tutorials, become a culinary master chef!',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

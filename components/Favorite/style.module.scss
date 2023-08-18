@@ -16,7 +16,7 @@
   flex-direction: column;
   gap: 3.5rem;
   .title {
-    padding: 0 3rem 5rem;
+    padding: 2rem 3rem 2rem;
     font-size: 1.6rem;
   }
   @include screen_sm {
@@ -72,6 +72,7 @@
         background: rgb(255, 136, 0);
         border-radius: 5rem;
         font-weight: 700;
+        text-transform: uppercase;
         :hover {
           color: #fff;
         }

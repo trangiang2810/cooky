@@ -69,3 +69,24 @@
     }
   }
 }
+.headphone {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  z-index: 10;
+  padding: 1rem 3%;
+  font-size: 1.4rem;
+  // display: flex;
+  justify-content: space-between;
+  display: none;
+  @include screen_sm {
+    display: flex;
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

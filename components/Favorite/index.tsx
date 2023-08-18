@@ -14,7 +14,7 @@ const Favorite = () => {
   if (favorites.length === 0) {
     return (
       <div className={styles.empty}>
-        <p>Danh sách yêu thích trống.</p>
+        <p>Favorites list is empty.</p>
       </div>
     )
   }
@@ -32,7 +32,7 @@ const Favorite = () => {
             key={index}
             onClick={() => handleMealDetail(meal.idMeal)}
           >
-            <Link className={styles.meal_item} href={`/details/${meal.idMeal}`}>
+            <Link className={styles.meal_item} href={`/details/${meal?.idMeal}`}>
               <div className={styles.thumb}>
                 <Image
                   src={meal?.strMealThumb}
@@ -46,8 +46,8 @@ const Favorite = () => {
                 <h2>{meal?.strMeal}</h2>
               </div>
             </Link>
-            <Link className={styles.btn_detail} href={`details/${meal.idMeal}`}>
-              <Button className={styles.btn}>Chi tiết</Button>
+            <Link className={styles.btn_detail} href={`details/${meal?.idMeal}`}>
+              <Button className={styles.btn}>DETAIL</Button>
             </Link>
             <div className={styles.favourite}>
               <AiTwotoneHeart

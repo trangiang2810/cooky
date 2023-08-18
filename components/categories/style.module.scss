@@ -15,6 +15,9 @@
     @include screen_md {
       right: 0;
     }
+    @include screen_sm {
+      top: 31%;
+    }
   }
   .btn_back {
     position: absolute;
@@ -24,6 +27,9 @@
     @include screen_md {
       left: 0;
     }
+    @include screen_sm {
+      top: 31%;
+    }
   }
 
   .items {
@@ -31,9 +37,6 @@
     cursor: pointer;
     text-align: center;
     @include screen_sm {
-      padding: 1rem;
-    }
-    @include screen_xs {
       padding: 0.5rem;
     }
 

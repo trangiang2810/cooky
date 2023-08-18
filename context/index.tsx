@@ -73,7 +73,7 @@ const MealContextProvider: React.FC<MealContextProviderProps> = ({ children }) =
   const handleFavoriteClick = (id: string) => {
     const selectMeal = meals.find(meal => meal.idMeal === id)
     if (selectMeal) {
-      const updatedFavorites = favorites.some(favorite => favorite.idMeal === id)
+      const updatedFavorites = favorites.some(favorite => favorite?.idMeal === id)
         ? favorites.filter(favorite => favorite.idMeal !== id)
         : [...favorites, selectMeal]
 

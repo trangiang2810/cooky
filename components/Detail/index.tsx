@@ -40,8 +40,8 @@ const Detail: React.FC = () => {
         <table className={styles.ingredient_list}>
           <thead>
             <tr>
-              <th>Thành phần</th>
-              <th className={styles.measure}>Lượng</th>
+              <th>Ingredient</th>
+              <th className={styles.measure}>Quantity</th>
             </tr>
           </thead>
           <tbody>
