@@ -58,22 +58,22 @@ const Header = () => {
         </nav>
       </header>
       <div className={styles.headphone}>
-        <div className={styles.item}>
+        <Link href="/" className={styles.item}>
           <FaHome />
           <span>Home</span>
-        </div>
-        <div className={styles.item}>
+        </Link>
+        <Link href="/details/52978" className={styles.item}>
           <AiFillBook />
           <span>Recipe</span>
-        </div>
-        <div className={styles.item}>
+        </Link>
+        <Link href="/favorites" className={styles.item}>
           <AiTwotoneHeart />
           <span>Favourite</span>
-        </div>
-        <div className={styles.item}>
+        </Link>
+        <Link href="/course-registration" className={styles.item}>
           <FaSignInAlt />
           <span>Register</span>
-        </div>
+        </Link>
       </div>
     </>
   )

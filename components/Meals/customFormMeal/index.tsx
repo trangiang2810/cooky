@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext} from 'react'
+import { useContext } from 'react'
 import Image from 'next/image'
 import styles from './style.module.scss'
 import { DetailsProps, MealsProps } from '@/types'
@@ -12,10 +12,11 @@ import { Button } from 'antd'
 const CustomForm = () => {
   const { meals, handleMealDetail, handleFavoriteClick, favorites, handleLoadMore }: any =
     useContext(MealContext)
-  if (meals.length === 0) {
+  if (!meals || meals.length === 0) {
     return (
-      <div className={styles.empty}>
-        <p>Sorry, there are currently no products you are looking for.</p>
+      <div className={styles.ring}>
+        Loading
+        <span></span>
       </div>
     )
   }
